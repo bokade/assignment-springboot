@@ -18,7 +18,6 @@ public class Company {
 
     private String companyName;
     private String establishedOn; //"yyyy-MM-dd"
-
     private String registrationNumber; // Unique Identifier
 
     private String website;
