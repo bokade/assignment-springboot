@@ -16,12 +16,9 @@ public class GlobalExceptionHandler {
 
     // 400 - Bad Request
     @ExceptionHandler(BadRequestException.class)
-    public ResponseEntity<ErrorResponse> handleBadRequest(
-            BadRequestException ex,
-            HttpServletRequest request) {
+    public ResponseEntity<ErrorResponse> handleBadRequest(BadRequestException ex, HttpServletRequest request) {
 
-        log.warn("BadRequestException | URI={} | Message={}",
-                request.getRequestURI(), ex.getMessage());
+        log.warn("BadRequestException | URI={} | Message={}", request.getRequestURI(), ex.getMessage());
 
         ErrorResponse response = ErrorResponse.builder()
                 .timestamp(Instant.now())
@@ -36,12 +33,9 @@ public class GlobalExceptionHandler {
 
     // 404 - Not Found
     @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<ErrorResponse> handleNotFound(
-            ResourceNotFoundException ex,
-            HttpServletRequest request) {
+    public ResponseEntity<ErrorResponse> handleNotFound(ResourceNotFoundException ex, HttpServletRequest request) {
 
-        log.warn("ResourceNotFoundException | URI={} | Message={}",
-                request.getRequestURI(), ex.getMessage());
+        log.warn("ResourceNotFoundException | URI={} | Message={}", request.getRequestURI(), ex.getMessage());
 
         ErrorResponse response = ErrorResponse.builder()
                 .timestamp(Instant.now())
@@ -56,12 +50,9 @@ public class GlobalExceptionHandler {
 
     // 500 - Internal Server Error (Fallback)
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorResponse> handleGenericException(
-            Exception ex,
-            HttpServletRequest request) {
+    public ResponseEntity<ErrorResponse> handleGenericException(Exception ex, HttpServletRequest request) {
 
-        log.error("Unhandled Exception | URI={} | Error={}",
-                request.getRequestURI(), ex.getMessage(), ex);
+        log.error("Unhandled Exception | URI={} | Error={}", request.getRequestURI(), ex.getMessage(), ex);
 
         ErrorResponse response = ErrorResponse.builder()
                 .timestamp(Instant.now())

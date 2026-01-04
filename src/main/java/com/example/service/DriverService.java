@@ -105,10 +105,7 @@ public class DriverService {
         if (driver.getDateOfBirth() != null) {
             LocalDate dob;
             try {
-                dob = LocalDate.parse(
-                        driver.getDateOfBirth().trim(),
-                        i11Utils.DATE_FORMATTER
-                );
+                dob = LocalDate.parse(driver.getDateOfBirth().trim(), i11Utils.DATE_FORMATTER);
             } catch (DateTimeParseException ex) {
                 log.error("Invalid DOB format: {}", driver.getDateOfBirth());
                 throw new BadRequestException("Invalid dateOfBirth. Expected format is yyyy-MM-dd");
