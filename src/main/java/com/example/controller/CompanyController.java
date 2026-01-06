@@ -86,7 +86,6 @@ public class CompanyController {
         return ResponseEntity.ok(node);
     }
 
-
     @GetMapping("/get-companies")
     public ResponseEntity<ObjectNode> getCompanies(
             @RequestParam(required = false) String companyName,
