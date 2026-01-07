@@ -144,7 +144,13 @@ public class CompanyService {
 
         // registrationNumber
         if (StringUtils.hasText(company.getRegistrationNumber())) {
-            existing.setRegistrationNumber(company.getRegistrationNumber());
+            if(existing.getRegistrationNumber().equalsIgnoreCase(company.getRegistrationNumber())){
+                existing.setRegistrationNumber(company.getRegistrationNumber());
+            }else if (companyRepository.checkCompanyExistByRegistractionNumber(company.getRegistrationNumber())) {
+                throw new BadRequestException("Company with the same Registration Number already exists");
+            }else {
+                existing.setRegistrationNumber(company.getRegistrationNumber());
+            }
         }
 
         // website

@@ -77,7 +77,7 @@ public class CompanyRepository {
         Pageable pageable = PageRequest.of(
                 pageIndex,
                 itemsPerPage,
-                Sort.by(Sort.Direction.ASC, "createdOn")
+                Sort.by(Sort.Direction.DESC, "modifiedOn")
         );
 
         query.with(pageable);
