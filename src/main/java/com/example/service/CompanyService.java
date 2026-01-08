@@ -142,6 +142,7 @@ public class CompanyService {
             existing.setPrimaryContactMobile(company.getPrimaryContactMobile());
         }
 
+
         // registrationNumber
         if (StringUtils.hasText(company.getRegistrationNumber())) {
             if(existing.getRegistrationNumber().equalsIgnoreCase(company.getRegistrationNumber())){
