@@ -143,6 +143,7 @@ public class CompanyService {
         }
 
 
+
         // registrationNumber
         if (StringUtils.hasText(company.getRegistrationNumber())) {
             if(existing.getRegistrationNumber().equalsIgnoreCase(company.getRegistrationNumber())){
